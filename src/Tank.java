@@ -19,6 +19,7 @@ public class Tank {
     }
 
     void goForward (int a)
+            //
 {
     if (fuel>=Math.abs(a)) {
         switch (dir) { //
