@@ -21,7 +21,7 @@ public class Tank {
     void goForward (int a)
 {
     if (fuel>=Math.abs(a)) {
-        switch (dir) {
+        switch (dir) { //
             case 0:
                 PositionY = PositionY - a;
                 fuel=fuel-Math.abs(a);
