@@ -60,7 +60,7 @@ public class Tank {
                 fuel=0;
                 break;
         }
-        System.out.println("топливо ggggзакончилось");
+        System.out.println("топливо ggggggggggзакончилось");
     }
 
 }
