@@ -11,7 +11,7 @@ public class copy {
         }
         System.out.println(Arrays.toString(chis));
         String user1="иванов иван ива";
-        String user2="Иванов Иван Иваylhович";
+        String user2="Иванов Иван Иваyнович";
         System.out.println(user1.equalsIgnoreCase(user2));
         if ((user1.equalsIgnoreCase(user2))==true)
         {
