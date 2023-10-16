@@ -1,17 +1,36 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+import javax.swing.JFrame;
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    class SimpleClickListener implements MouseListener{
+
+        @Override
+        public void mouseClicked (MouseEvent e) {
+            System.out.println("Clicked аt " + e.getX() + "," + e.getY());
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {}
+
+        @Override
+        public void mouseExited(MouseEvent e) {}
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            JFrame jf = new JFrame();
+            jf.setSize(400, 300);
+            jf.addMouseListener(new SimpleClickListener());
+            jf.setVisible(true);
         }
     }
-}
+
