@@ -1,8 +1,12 @@
+package Chess;
+
+import Chess.ChessBoard;
+
 abstract public class ChessPiece {
     String color;
     boolean chek=true;
 public ChessPiece (String color)
-{}
+{this.color=color;}
     public String getColor()
     { return this.color;}
 // этот метод почему-то должен быть абстрактным
