@@ -35,15 +35,19 @@ public class Bishop extends ChessPiece {
     boolean isEmpty(ChessBoard chessBoard, int line, int column, int toLine, int toColumn)
     {
         boolean empty=true;
-        if (this.getColor().equals(chessBoard.board[toLine][toColumn]))
-        {empty=false;}
+        if (chessBoard.board[toLine][toColumn]!=null) {
+            if (this.getColor().equals(chessBoard.board[toLine][toColumn].getColor())) {
+                empty = false;
+            }
+        }
+
         return empty;
     }
 
     boolean isSvobodno (ChessBoard chessBoard, int line, int column, int toLine, int toColumn)
     {
         boolean svobodno=true;
-        if (((toLine-line)>2 ) && ((toColumn-column)>2 ))
+        if (((toLine-line)>=2 ) && ((toColumn-column)>=2 ))
         {
             for (int i=1;i<(toLine-line);i++)
             {
@@ -53,7 +57,7 @@ public class Bishop extends ChessPiece {
                 }
             }
         }
-        if (((toLine-line)>2 ) && ((toColumn-column)<-2 ))
+        if (((toLine-line)>=2 ) && ((toColumn-column)<=-2 ))
         {
             for (int i=1;i<(toLine-line);i++)
             {
@@ -63,7 +67,7 @@ public class Bishop extends ChessPiece {
                 }
             }
         }
-        if (((toLine-line)<-2 ) && ((toColumn-column)>2 ))
+        if (((toLine-line)<=-2 ) && ((toColumn-column)>=2 ))
         {
             for (int i=1;i<(toColumn-column);i++)
             {
@@ -73,7 +77,7 @@ public class Bishop extends ChessPiece {
                 }
             }
         }
-        if (((toLine-line)<-2 ) && ((toColumn-column)<-2 ))
+        if (((toLine-line)<=-2 ) && ((toColumn-column)<=-2 ))
         {
             for (int i=1;i<(column-toColumn);i++)
             {

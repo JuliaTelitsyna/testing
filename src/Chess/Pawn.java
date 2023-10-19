@@ -21,14 +21,27 @@ public class Pawn extends ChessPiece {
        if (this.isEmpty(chessBoard,line,column,toLine,toColumn))
         {
             if (((line >= 0) && (line <= 7)) && ((column >= 0) && (column <= 7)) && ((toLine >= 0) && (toLine <= 7)) && ((toColumn >= 0) && (toColumn <= 7))) {
+                if (this.getColor().equals("White")) {
 
-                if (this.check = true) {
-                    if (((toLine - line) == 2) && ((column - toColumn) == 0)) {
+                    if (this.check = true) {
+                        if (((toLine - line) == 2) && ((column - toColumn) == 0)) {
+                            can = true;
+                        }
+                    }
+                    if (((toLine - line) == 1) && ((column - toColumn) == 0)) {
                         can = true;
                     }
                 }
-                if (((toLine - line) == 1) && ((column - toColumn) == 0)) {
-                    can = true;
+                else {
+                    if (this.check = true) {
+                        if (((toLine - line) == -2) && ((column - toColumn) == 0)) {
+                            can = true;
+                        }
+                    }
+                    if (((toLine - line) == -1) && ((column - toColumn) == 0)) {
+                        can = true;
+                    }
+
                 }
 
 
@@ -41,9 +54,13 @@ public class Pawn extends ChessPiece {
     boolean isEmpty(ChessBoard chessBoard, int line, int column, int toLine, int toColumn)
     {
         boolean empty=true;
-        if (this.getColor().equals(chessBoard.board[toLine][toColumn]))
-        {empty=false;}
-        return empty;
+        if (chessBoard.board[toLine][toColumn]!=null) {
+            if (this.getColor().equals(chessBoard.board[toLine][toColumn].getColor())) {
+                empty = false;
+            }
+        }
+
+       return empty;
     }
     }
 

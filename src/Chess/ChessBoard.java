@@ -121,7 +121,7 @@ public class ChessBoard {
                         board[7][7].check && board[7][4].check &&
                         !new King("Black").isUnderAttack(this, 7, 6)) { // check that position not in under attack
                     board[7][4] = null;
-                    board[7][6] = new King("Black");   // move King
+                    board[7][6] = new King("Black");   // movee King
                     board[7][6].check = false;
                     board[7][7] = null;
                     board[7][5] = new Rook("Black");   // move Rook

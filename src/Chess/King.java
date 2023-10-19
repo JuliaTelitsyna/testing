@@ -22,7 +22,11 @@ public class King extends ChessPiece {
             if (((line >= 0) && (line <= 7)) && ((column >= 0) && (column <= 7)) && ((toLine >= 0) && (toLine <= 7)) && ((toColumn >= 0) && (toColumn <= 7))) {
 
 
-                if ((Math.abs(line - toLine) == 1) || (Math.abs(column - toColumn) == 1)) {
+                if
+                (
+                        ((Math.abs(line - toLine) == 1) || (Math.abs(column - toColumn) == 1))
+                       // && (!(this.isUnderAttack(chessBoard,toLine,toColumn)))
+                ){
                     can = true;
                 }
 
@@ -37,9 +41,11 @@ public class King extends ChessPiece {
             for (int j=0;j<8;j++)
             { if (board.board[i][j]!=null)
             {
-                if (board.board[i][j].canMoveToPosition(board, i, j, line, column))
-            { attack=true;
-            break;}
+                if ((!board.board[i][j].getColor().equals(this.getColor()))) {
+                    if (board.board[i][j].canMoveToPosition(board, i, j, line, column)) {
+                        attack = true;
+                    }
+                }
 
             }
             }
@@ -50,8 +56,12 @@ public class King extends ChessPiece {
     boolean isEmpty(ChessBoard chessBoard, int line, int column, int toLine, int toColumn)
     {
         boolean empty=true;
-        if (this.getColor().equals(chessBoard.board[toLine][toColumn]))
-        {empty=false;}
+        if (chessBoard.board[toLine][toColumn]!=null) {
+            if (this.getColor().equals(chessBoard.board[toLine][toColumn].getColor())) {
+                empty = false;
+            }
+        }
+
         return empty;
     }
 

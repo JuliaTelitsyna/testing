@@ -31,8 +31,12 @@ public class Horse extends ChessPiece {
     boolean isEmpty(ChessBoard chessBoard, int line, int column, int toLine, int toColumn)
     {
         boolean empty=true;
-        if (this.getColor().equals(chessBoard.board[toLine][toColumn]))
-        {empty=false;}
+        if (chessBoard.board[toLine][toColumn]!=null) {
+            if (this.getColor().equals(chessBoard.board[toLine][toColumn].getColor())) {
+                empty = false;
+            }
+        }
+
         return empty;
     }
 
